@@ -12,6 +12,7 @@
         "algoliasearch": "^4.24.0",
         "classnames": "^2.5.1",
         "dayjs": "^1.11.11",
+        "framer-motion": "^12.23.22",
         "front-matter": "^4.0.2",
         "glob": "^10.4.2",
         "lucide-react": "^0.544.0",
