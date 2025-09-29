@@ -1,16 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Code2, ArrowRight, Github, Linkedin, Mail, Menu, X, Check, Sparkles, Zap, Globe } from 'lucide-react';
+import { Code2, ArrowRight, Mail, Menu, X, Check, Sparkles, Zap, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const metadata = {
-  title: 'Daniel Páscoa | Website Developer for Local Businesses in Portugal & UK',
-  description: 'Fast, bold, and effective websites for local businesses. Mobile-first designs that convert visitors into customers. Starting from £350. Serving Portugal & UK.',
-  keywords: ['web developer Portugal', 'website design UK', 'local business websites', 'freelance web developer', 'affordable websites', 'mobile-first design'],
+  title: 'Daniel Páscoa | Local Business Websites Delivered in 7 Days',
+  description: 'Affordable, mobile-friendly websites for local businesses. Choose from clear packages starting at £399 with WhatsApp-first support and fast delivery.',
+  keywords: [
+    'local business websites',
+    'affordable web design',
+    'small business website packages',
+    'web designer for small businesses',
+    'fast website delivery',
+    'daniel pascoa'
+  ],
   authors: [{ name: 'Daniel Páscoa' }],
   creator: 'Daniel Páscoa',
   openGraph: {
-    title: 'Daniel Páscoa | Website Developer for Local Businesses',
-    description: 'Fast, bold, and effective websites for local businesses. Starting from £350.',
+    title: 'Daniel Páscoa | Affordable Websites for Local Businesses',
+    description: 'Affordable, mobile-friendly websites for local businesses. Packages from £399 with WhatsApp-first support.',
     url: 'https://danielpascoa.com',
     siteName: 'Daniel Páscoa',
     images: [
@@ -25,8 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Daniel Páscoa | Website Developer for Local Businesses',
-    description: 'Fast, bold, and effective websites that convert. Starting from £350.',
+    title: 'Daniel Páscoa | Local Business Websites Delivered in 7 Days',
+    description: 'Affordable, mobile-friendly websites for local businesses. Packages from £399 with WhatsApp-first support.',
     images: ['https://danielpascoa.com/og-image.png'],
   },
   robots: {
@@ -45,14 +52,10 @@ const jsonLd = {
   telephone: '+351910000000',
   address: {
     '@type': 'PostalAddress',
-    addressCountry: 'PT',
+    addressCountry: 'GB',
   },
-  sameAs: [
-    'https://linkedin.com/in/danielpascoa',
-    'https://github.com/dpascoa',
-  ],
-  priceRange: '£350-£2000',
-  description: 'Professional website development for local businesses in Portugal and UK',
+  priceRange: '£399-£1,499',
+  description: 'Affordable website packages for local businesses with WhatsApp-first support and clear pricing.',
 };
 
 export default function Home() {
@@ -137,36 +140,39 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="inline-block mb-6 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10"
           >
-            <span className="text-sm text-blue-400">✨ Available for New Projects</span>
+            <span className="text-sm text-blue-400">✨ Affordable websites ready in 7 days</span>
           </motion.div>
           
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-6xl md:text-8xl font-black mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-black mb-4 leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-              Daniel Páscoa
+              Local Business Websites
+            </span>
+            <span className="block text-3xl md:text-5xl text-gray-200 mt-2">
+              Ready in 7 Days
             </span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl md:text-4xl font-bold mb-6 text-gray-300"
+            className="text-lg md:text-xl text-blue-200 uppercase tracking-[0.3em] mb-6"
           >
-            Websites That Get You More Customers
+            Daniel Páscoa - Website Partner for Local Businesses
           </motion.p>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            I help local businesses in <span className="text-blue-400 font-semibold">Portugal & UK</span> grow with <span className="text-purple-400 font-semibold">fast, bold, and effective</span> websites that turn visitors into paying customers.
+            Affordable, mobile-first websites with <span className="text-purple-400 font-semibold">clear pricing, no surprises</span>, and easy communication over WhatsApp or email from kickoff to launch.
           </motion.p>
 
           <motion.div
@@ -176,7 +182,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a href="#pricing" className="group bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-2">
-              View Pricing
+              Explore Packages
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
             </a>
             <a href="#portfolio" className="px-8 py-4 rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-white/5 hover:border-white/40 transition-all">
@@ -188,16 +194,11 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 flex justify-center gap-6"
+            className="mt-16 flex justify-center"
           >
-            <a href="https://github.com/dpascoa" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all hover:scale-110">
-              <Github size={24} />
-            </a>
-            <a href="https://linkedin.com/in/danielpascoa" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all hover:scale-110">
-              <Linkedin size={24} />
-            </a>
-            <a href="mailto:hello@danielpascoa.com" className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all hover:scale-110">
-              <Mail size={24} />
+            <a href="mailto:hello@danielpascoa.com" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 border border-white/10 text-sm uppercase tracking-widest text-gray-200 hover:bg-white/10 transition-all">
+              <Mail size={18} />
+              Email me directly
             </a>
           </motion.div>
         </div>
@@ -233,23 +234,19 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Code2 size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Restaurant & Café Websites</h3>
+              <h3 className="text-2xl font-bold mb-4">Built For Local Businesses</h3>
               <ul className="text-gray-400 space-y-2 mb-4">
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>Online menus with photos & prices</span>
+                  <span>Restaurants, salons, trades, cafés, gyms & shops</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>WhatsApp booking integration</span>
+                  <span>Clear storytelling that highlights your services</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>Gallery of dishes & atmosphere</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>Google Maps integration</span>
+                  <span>Local SEO foundations to help you show up on Google</span>
                 </li>
               </ul>
             </motion.div>
@@ -258,23 +255,19 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Sparkles size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Service Business Sites</h3>
+              <h3 className="text-2xl font-bold mb-4">Modern & Mobile-First</h3>
               <ul className="text-gray-400 space-y-2 mb-4">
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>Salons, gyms, beauty clinics</span>
+                  <span>Fast, mobile-friendly layouts that convert</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>Service listings & pricing</span>
+                  <span>WhatsApp click-to-chat and email contact forms</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>Online booking calendars</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>Before/after galleries</span>
+                  <span>Designed to match your branding, colours and tone</span>
                 </li>
               </ul>
             </motion.div>
@@ -283,23 +276,19 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Zap size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Trade & Portfolio Sites</h3>
+              <h3 className="text-2xl font-bold mb-4">Clear Packages & Support</h3>
               <ul className="text-gray-400 space-y-2 mb-4">
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-pink-400 mt-0.5 flex-shrink-0" />
-                  <span>Plumbers, electricians, builders</span>
+                  <span>Transparent packages with fixed pricing and clear timelines</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-pink-400 mt-0.5 flex-shrink-0" />
-                  <span>Project portfolio & testimonials</span>
+                  <span>Optional hosting, maintenance, and visibility support after launch</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check size={20} className="text-pink-400 mt-0.5 flex-shrink-0" />
-                  <span>Contact forms & quote requests</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check size={20} className="text-pink-400 mt-0.5 flex-shrink-0" />
-                  <span>Service area maps</span>
+                  <span>Stay in touch over WhatsApp, email, or quick calls</span>
                 </li>
               </ul>
             </motion.div>
@@ -319,10 +308,10 @@ export default function Home() {
             className="text-center mb-20"
           >
             <h2 className="text-5xl md:text-6xl font-black mb-6">
-              Simple, Transparent Pricing
+              Packages & Transparent Pricing
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Choose the package that fits your business. All include mobile-first design & free revisions.
+              Pick the package that matches your business stage. No hidden fees, clear timelines, optional ongoing support.
             </p>
           </motion.div>
 
@@ -336,14 +325,14 @@ export default function Home() {
             {/* Starter Package */}
             <motion.div variants={fadeInUp} className="bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-3xl border border-white/10 hover:border-blue-500/50 transition-all">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Starter</h3>
+                <h3 className="text-2xl font-bold mb-2">Starter Site</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">£350</span>
-                  <span className="text-gray-500">- £750</span>
+                  <span className="text-5xl font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">£399</span>
+                  <span className="text-gray-500 text-sm">one-off</span>
                 </div>
-                <p className="text-gray-400 mt-2">Perfect for getting online fast</p>
+                <p className="text-gray-400 mt-2">Launch a modern, mobile-friendly site in just 7 days.</p>
               </div>
-              
+
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
@@ -351,114 +340,130 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Mobile-first responsive design</span>
+                  <span className="text-gray-300">Modern, mobile-friendly template</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Contact form integration</span>
+                  <span className="text-gray-300">WhatsApp click-to-chat + email form</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Basic SEO setup</span>
+                  <span className="text-gray-300">Google Business Profile setup</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">1 week delivery</span>
+                  <span className="text-gray-300">Content support + launch checklist</span>
                 </li>
               </ul>
 
+              <div className="text-sm text-gray-500 mb-4 flex items-center gap-2">
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full">
+                  <Zap size={16} /> 1 week delivery
+                </span>
+              </div>
+
               <a href="#contact" className="block w-full text-center bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-blue-500/50">
-                Get Started
+                Book Starter Site
               </a>
             </motion.div>
 
-            {/* Business Package - Featured */}
+            {/* Growth Package - Featured */}
             <motion.div variants={fadeInUp} className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-8 rounded-3xl border-2 border-blue-500/50 relative hover:scale-105 transition-all">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-1 rounded-full text-sm font-bold">
                 MOST POPULAR
               </div>
-              
+
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Business</h3>
+                <h3 className="text-2xl font-bold mb-2">Growth Site</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">£1,000</span>
-                  <span className="text-gray-500">- £2,000</span>
+                  <span className="text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">£799</span>
+                  <span className="text-gray-500 text-sm">one-off</span>
                 </div>
-                <p className="text-gray-400 mt-2">Everything you need to grow</p>
+                <p className="text-gray-400 mt-2">Tell your full story with a branded, SEO-friendly site.</p>
               </div>
-              
+
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">5-10 pages (all features)</span>
+                  <span className="text-gray-300">Up to 6 pages (Home, Services, Gallery, About, Contact, Blog)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Custom design & animations</span>
+                  <span className="text-gray-300">Custom look using your logo, colours, and tone</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Booking/calendar integration</span>
+                  <span className="text-gray-300">SEO basics: meta tags, Google submission, copy guidance</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">WhatsApp & social integration</span>
+                  <span className="text-gray-300">Social links, map embed, and enquiry forms</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Advanced SEO & analytics</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">2 weeks delivery</span>
+                  <span className="text-gray-300">Content collection support + 2 revision rounds</span>
                 </li>
               </ul>
 
+              <div className="flex flex-wrap gap-2 mb-4 text-sm text-gray-200">
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-white/10 rounded-full border border-white/10">
+                  <Zap size={16} /> 2 week delivery
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-white/10 rounded-full border border-blue-400/30 text-blue-200">
+                  <Sparkles size={16} /> 12 months hosting included
+                </span>
+              </div>
+
               <a href="#contact" className="block w-full text-center bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all">
-                Get Started
+                Book Growth Site
               </a>
             </motion.div>
 
-            {/* Custom Package */}
+            {/* Premium Package */}
             <motion.div variants={fadeInUp} className="bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-3xl border border-white/10 hover:border-purple-500/50 transition-all">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Custom</h3>
+                <h3 className="text-2xl font-bold mb-2">Premium Online Presence</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">£2,500</span>
-                  <span className="text-gray-500">+</span>
+                  <span className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">£1,499</span>
+                  <span className="text-gray-500 text-sm">one-off</span>
                 </div>
-                <p className="text-gray-400 mt-2">For complex requirements</p>
+                <p className="text-gray-400 mt-2">A fully customised digital HQ with advanced features.</p>
               </div>
-              
+
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Unlimited pages & features</span>
+                  <span className="text-gray-300">8-12 bespoke pages shaped around your goals</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">E-commerce integration</span>
+                  <span className="text-gray-300">Online booking, menu, or shop integration</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Custom functionality</span>
+                  <span className="text-gray-300">Advanced local SEO + speed optimisation</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Third-party API integrations</span>
+                  <span className="text-gray-300">Monthly traffic report (first 3 months free)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Priority support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">Custom timeline</span>
+                  <span className="text-gray-300">Training session + launch day support</span>
                 </li>
               </ul>
 
+              <div className="flex flex-wrap gap-2 mb-4 text-sm text-gray-200">
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-white/10 rounded-full border border-white/10">
+                  <Zap size={16} /> 3-4 week delivery
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-white/10 rounded-full border border-purple-400/30 text-purple-200">
+                  <Sparkles size={16} /> 12 months hosting included
+                </span>
+              </div>
+
               <a href="#contact" className="block w-full text-center bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-purple-500/50">
-                Let's Talk
+                Book Premium Site
               </a>
             </motion.div>
           </motion.div>
@@ -468,19 +473,78 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-16"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center mt-16 max-w-3xl mx-auto"
           >
-            <p className="text-gray-400 mb-4">✨ All packages include:</p>
+            <p className="text-gray-400 mb-4">Every package includes WhatsApp and email support from day one, copy guidance, and launch assistance so you're never left guessing.</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">Free revisions</span>
               <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">Mobile-first design</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">Fast loading speeds</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">SEO optimized</span>
+              <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">Free revisions until launch</span>
+              <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">Analytics & SEO basics</span>
+              <span className="px-4 py-2 bg-white/5 rounded-full border border-white/10">Domain & hosting guidance</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-20"
+          >
+            <div className="max-w-5xl mx-auto bg-gradient-to-br from-white/5 to-white/0 p-10 rounded-3xl border border-white/10">
+              <div className="text-center mb-10">
+                <h3 className="text-3xl font-bold mb-2">Ongoing Options (optional)</h3>
+                <p className="text-gray-400">Keep growing after launch with flexible monthly support. Cancel anytime.</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-black/30 border border-white/10 rounded-2xl p-6">
+                  <h4 className="text-xl font-semibold mb-2">Hosting + Maintenance</h4>
+                  <p className="text-3xl font-black text-blue-300 mb-4">£25<span className="text-base text-gray-400 font-normal">/month</span></p>
+                  <ul className="space-y-2 text-gray-300 text-sm">
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-blue-400 mt-0.5" />
+                      <span>Domain, hosting & SSL management</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-blue-400 mt-0.5" />
+                      <span>Monthly updates, backups & security checks</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-blue-400 mt-0.5" />
+                      <span>Minor content tweaks when you need them</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-black/30 border border-white/10 rounded-2xl p-6">
+                  <h4 className="text-xl font-semibold mb-2">Hosting + Visibility Support</h4>
+                  <p className="text-3xl font-black text-purple-300 mb-4">£60<span className="text-base text-gray-400 font-normal">/month</span></p>
+                  <ul className="space-y-2 text-gray-300 text-sm">
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-purple-400 mt-0.5" />
+                      <span>Everything in Hosting + Maintenance</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-purple-400 mt-0.5" />
+                      <span>Monthly on-page SEO tune-ups and analytics checks</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-purple-400 mt-0.5" />
+                      <span>Quarterly refresh of existing content and offers</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={18} className="text-purple-400 mt-0.5" />
+                      <span>Performance report with practical next steps</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
+
 
       {/* Portfolio Section */}
       <section className="py-32 px-6 bg-gray-900" id="portfolio">
@@ -613,7 +677,7 @@ export default function Home() {
                 <Zap size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
-              <p className="text-gray-400">Most projects completed in 1-2 weeks</p>
+              <p className="text-gray-400">Starter sites live in 7 days, larger builds within 4 weeks</p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="text-center">
@@ -621,24 +685,87 @@ export default function Home() {
                 <Globe size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Mobile-First</h3>
-              <p className="text-gray-400">Perfect on all devices, from phones to desktops</p>
+              <p className="text-gray-400">Optimised for phones, tablets, desktops and Google rankings</p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Sparkles size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Modern Design</h3>
-              <p className="text-gray-400">Bold, professional designs that stand out</p>
+              <h3 className="text-xl font-bold mb-2">Clear Pricing</h3>
+              <p className="text-gray-400">Fixed packages with everything included - no hidden fees</p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Check size={32} />
+                <Mail size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Free Revisions</h3>
-              <p className="text-gray-400">Unlimited changes until you're 100% happy</p>
+              <h3 className="text-xl font-bold mb-2">WhatsApp-First Support</h3>
+              <p className="text-gray-400">Easy communication via WhatsApp or email plus optional maintenance</p>
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-32 px-6 bg-gradient-to-b from-gray-900 to-black" id="process">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl md:text-6xl font-black mb-6">
+              How Projects Run
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              A clear, collaborative workflow that keeps you in the loop and launches on time.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
+          >
+            {[{
+              number: '01',
+              title: 'Discovery Chat',
+              description: 'A 30-minute call or WhatsApp chat to understand your business, goals, and budget.'
+            }, {
+              number: '02',
+              title: 'Proposal Same Day',
+              description: 'You pick a package, receive a written proposal with timeline, and sign digitally.'
+            }, {
+              number: '03',
+              title: 'Content & Assets',
+              description: 'Send over text, photos, and logos - or I source stock imagery and help write copy.'
+            }, {
+              number: '04',
+              title: 'Build & Preview',
+              description: 'Design and build your site, then share a live preview link for early feedback.'
+            }, {
+              number: '05',
+              title: 'Feedback & Tweaks',
+              description: 'One to two revision rounds to polish layout, messaging, and conversions.'
+            }, {
+              number: '06',
+              title: 'Launch & Support',
+              description: 'Connect your domain, go live, and optionally continue with hosting or SEO growth.'
+            }].map((step) => (
+              <motion.div key={step.number} variants={fadeInUp} className="bg-black/40 border border-white/10 rounded-3xl p-8">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg mb-6">
+                  {step.number}
+                </div>
+                <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{step.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -656,13 +783,13 @@ export default function Home() {
           >
             <h2 className="text-4xl md:text-5xl font-black mb-8">About Me</h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-6">
-              I'm Daniel Páscoa, a Software Engineer with a passion for helping local businesses succeed online. After working with cloud technologies and AI systems, I realized many small businesses struggle to get a professional web presence that actually brings in customers.
+              I'm Daniel Páscoa, a software engineer who prefers working face-to-face with real businesses - restaurants, salons, tradespeople, cafés, gyms, and shops that deserve better than a dated website template.
             </p>
             <p className="text-xl text-gray-300 leading-relaxed mb-6">
-              That's why I focus exclusively on building fast, effective websites for local businesses in Portugal & the UK. Every site I build is designed with one goal: turning your visitors into paying customers.
+              I package the whole journey: clear pricing, fast delivery, WhatsApp-first communication, and hosting/SEO options after launch. You always know the cost, the timeline, and what happens next.
             </p>
             <p className="text-xl text-gray-300 leading-relaxed">
-              I combine technical expertise with a business-focused mindset. Your website isn't just about looking good — it's about growing your business.
+              Every build blends modern design with a growth mindset, so your site does more than look good - it brings in enquiries, bookings, and repeat customers.
             </p>
           </motion.div>
         </div>
@@ -682,7 +809,7 @@ export default function Home() {
               Ready to Grow Your Business?
             </h2>
             <p className="text-xl text-gray-400 mb-12">
-              Let's build a website that brings you more customers. Get in touch today for a free consultation.
+              Book a free 30-minute health check - we can chat over WhatsApp or jump on a quick call to map the right package for you.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -690,17 +817,14 @@ export default function Home() {
                 <Mail size={20} />
                 Email Me
               </a>
-              <a href="https://wa.me/351910000000" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-semibold text-lg bg-green-600 hover:bg-green-700 hover:shadow-xl hover:shadow-green-500/50 transition-all">
+              <a href="https://wa.me/351910000000" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-semibold text-lg bg-green-600 hover:bg-green-500/90 shadow-lg shadow-green-950/20 hover:shadow-green-500/30 transition-all border border-green-400/10">
                 WhatsApp
-              </a>
-              <a href="https://linkedin.com/in/danielpascoa" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-semibold text-lg border-2 border-white/20 hover:bg-white/5 hover:border-white/40 transition-all">
-                LinkedIn
               </a>
             </div>
 
             <div className="inline-flex items-center gap-2 text-gray-500 text-sm">
               <Check size={16} className="text-green-400" />
-              <span>Typically respond within 24 hours</span>
+              <span>Same-day responses Monday to Friday</span>
             </div>
           </motion.div>
         </div>
@@ -713,12 +837,6 @@ export default function Home() {
             © {new Date().getFullYear()} Daniel Páscoa. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="https://github.com/dpascoa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-              <Github size={20} />
-            </a>
-            <a href="https://linkedin.com/in/danielpascoa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-              <Linkedin size={20} />
-            </a>
             <a href="mailto:hello@danielpascoa.com" className="text-gray-500 hover:text-white transition-colors">
               <Mail size={20} />
             </a>
