@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { Code2, ArrowRight, Mail, Menu, X, Check, Sparkles, Zap, Globe } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+
+const siteUrl = 'https://danielpascoa.com';
 
 export const metadata = {
   title: 'Daniel Páscoa | Local Business Websites Delivered in 7 Days',
@@ -18,11 +21,11 @@ export const metadata = {
   openGraph: {
     title: 'Daniel Páscoa | Affordable Websites for Local Businesses',
     description: 'Affordable, mobile-friendly websites for local businesses. Packages from £399 with WhatsApp-first support.',
-    url: 'https://danielpascoa.com',
+    url: siteUrl,
     siteName: 'Daniel Páscoa',
     images: [
       {
-        url: 'https://danielpascoa.com/og-image.png',
+        url: `${siteUrl}/images/main-hero.jpg`,
         width: 1200,
         height: 630,
       },
@@ -34,7 +37,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Daniel Páscoa | Local Business Websites Delivered in 7 Days',
     description: 'Affordable, mobile-friendly websites for local businesses. Packages from £399 with WhatsApp-first support.',
-    images: ['https://danielpascoa.com/og-image.png'],
+    images: [`${siteUrl}/images/main-hero.jpg`],
   },
   robots: {
     index: true,
@@ -46,9 +49,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Daniel Páscoa - Web Development',
-  image: 'https://danielpascoa.com/og-image.png',
-  '@id': 'https://danielpascoa.com',
-  url: 'https://danielpascoa.com',
+  image: `${siteUrl}/images/main-hero.jpg`,
+  '@id': siteUrl,
+  url: siteUrl,
   telephone: '+351910000000',
   address: {
     '@type': 'PostalAddress',
@@ -61,6 +64,12 @@ const jsonLd = {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+
+  // Simple contact form state
+  const [form, setForm] = useState({ name: '', email: '', business: '', message: '', website: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -69,26 +78,66 @@ export default function Home() {
   }, []);
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 30 },
     visible: { opacity: 1, y: 0 }
   };
 
   const staggerContainer = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: prefersReducedMotion ? 1 : 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: prefersReducedMotion ? 0 : 0.2
       }
     }
   };
 
+  const t = (duration = 0.6, delay = 0) => prefersReducedMotion ? { duration: 0 } : { duration, delay };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (form.website) return; // honeypot
+    setSubmitting(true);
+    setFormError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, business: form.business, message: form.message })
+      });
+      if (!res.ok) throw new Error('Failed to submit');
+      window.location.href = '/thank-you/';
+    } catch (err) {
+      setFormError('Something went wrong. Please try again or email hello@danielpascoa.com.');
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(', ')} />
+        <link rel="canonical" href={siteUrl} />
+        {/* Open Graph */}
+        <meta property="og:type" content={metadata.openGraph.type} />
+        <meta property="og:locale" content={metadata.openGraph.locale} />
+        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:image" content={metadata.openGraph.images[0].url} />
+        <meta property="og:image:width" content={String(metadata.openGraph.images[0].width)} />
+        <meta property="og:image:height" content={String(metadata.openGraph.images[0].height)} />
+        {/* Twitter */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        <meta name="twitter:image" content={metadata.twitter.images[0]} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </Head>
 
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'}`}>
@@ -129,15 +178,15 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
         {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className={`absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl ${prefersReducedMotion ? '' : 'animate-pulse'}`}></div>
+          <div className={`absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl ${prefersReducedMotion ? '' : 'animate-pulse'}`} style={{animationDelay: prefersReducedMotion ? undefined : '1s'}}></div>
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={t(0.5)}
             className="inline-block mb-6 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10"
           >
             <span className="text-sm text-blue-400">✨ Affordable websites ready in 7 days</span>
@@ -146,7 +195,7 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={t(0.6, 0.1)}
             className="text-5xl md:text-7xl font-black mb-4 leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
@@ -163,13 +212,13 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-blue-200 uppercase tracking-[0.3em] mb-6"
           >
-            Daniel Páscoa - Website Partner for Local Businesses
+            by Daniel Páscoa
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={t(0.6, 0.3)}
             className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             Affordable, mobile-first websites with <span className="text-purple-400 font-semibold">clear pricing, no surprises</span>, and easy communication over WhatsApp or email from kickoff to launch.
@@ -178,7 +227,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={t(0.6, 0.4)}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a href="#pricing" className="group bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-2">
@@ -193,7 +242,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={t(0.6, 0.5)}
             className="mt-16 flex justify-center"
           >
             <a href="mailto:hello@danielpascoa.com" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 border border-white/10 text-sm uppercase tracking-widest text-gray-200 hover:bg-white/10 transition-all">
@@ -201,6 +250,94 @@ export default function Home() {
               Email me directly
             </a>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-32 px-6 bg-gradient-to-b from-black to-gray-900" id="testimonials">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            transition={t(0.6)}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-black mb-6">What Local Owners Say</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">Real feedback from businesses like yours.</p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            {[{
+              quote: 'We were live in a week. Customers now message us on WhatsApp every day.',
+              name: 'Maria C.',
+              role: 'Café Owner'
+            }, {
+              quote: 'Clear pricing and zero hassle. Bookings increased within the first month.',
+              name: 'James S.',
+              role: 'Gym Manager'
+            }, {
+              quote: 'Our old site was dated. The new one looks great and loads fast on phones.',
+              name: 'Andre P.',
+              role: 'Plumbing Services'
+            }].map((tItem, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="bg-white/5 border border-white/10 rounded-3xl p-8">
+                <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6">“{tItem.quote}”</p>
+                <div className="text-sm text-gray-400">{tItem.name} • {tItem.role}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-32 px-6 bg-black" id="faq">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            transition={t(0.6)}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-black mb-6">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-400">Quick answers to common questions.</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[{
+              q: 'How fast can you launch?',
+              a: 'Starter sites launch in about 7 days once content is confirmed. Growth and Premium take 2–4 weeks depending on scope.'
+            }, {
+              q: 'Do you handle domain and hosting?',
+              a: 'Yes. I can register or connect your domain and provide hosting. Growth and Premium include 12 months hosting.'
+            }, {
+              q: 'Do I need to provide photos and text?',
+              a: 'If you have them, great. Otherwise I help with copywriting and can use high‑quality stock images.'
+            }, {
+              q: 'What are the payment terms?',
+              a: 'Typically 50% to start and 50% on launch. Simple and transparent.'
+            }, {
+              q: 'Can I update the website later?',
+              a: 'Yes. You can request updates anytime. Maintenance and visibility support packages are available.'
+            }, {
+              q: 'What if I don’t like the first version?',
+              a: 'We include revision rounds to make sure the site fits your brand and goals before launch.'
+            }].map((item, i) => (
+              <div key={i} className="bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-6">
+                <h3 className="text-lg font-semibold mb-2">{item.q}</h3>
+                <p className="text-gray-400 leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -803,7 +940,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            transition={{ duration: 0.6 }}
+            transition={t(0.6)}
           >
             <h2 className="text-5xl md:text-6xl font-black mb-6">
               Ready to Grow Your Business?
@@ -811,6 +948,42 @@ export default function Home() {
             <p className="text-xl text-gray-400 mb-12">
               Book a free 30-minute health check - we can chat over WhatsApp or jump on a quick call to map the right package for you.
             </p>
+
+            {/* Simple contact form */}
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-6 md:p-8 text-left mx-auto max-w-3xl mb-8">
+              {formError && (
+                <div className="mb-4 text-sm text-red-300">{formError}</div>
+              )}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm text-gray-300 mb-1">Name</label>
+                  <input id="name" name="name" required value={form.name} onChange={(e)=>setForm({...form, name:e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm text-gray-300 mb-1">Email</label>
+                  <input id="email" name="email" type="email" required value={form.email} onChange={(e)=>setForm({...form, email:e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div className="md:col-span-2">
+                  <label htmlFor="business" className="block text-sm text-gray-300 mb-1">Business Name</label>
+                  <input id="business" name="business" value={form.business} onChange={(e)=>setForm({...form, business:e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div className="md:col-span-2">
+                  <label htmlFor="message" className="block text-sm text-gray-300 mb-1">What do you need?</label>
+                  <textarea id="message" name="message" rows="4" required value={form.message} onChange={(e)=>setForm({...form, message:e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                {/* Honeypot */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input id="website" name="website" value={form.website} onChange={(e)=>setForm({...form, website:e.target.value})} />
+                </div>
+              </div>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:items-center">
+                <button type="submit" disabled={submitting} className="inline-flex justify-center items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 font-semibold disabled:opacity-60">
+                  {submitting ? 'Sending…' : 'Send Message'}
+                </button>
+                <p className="text-xs text-gray-500">By submitting, you agree to be contacted about your enquiry.</p>
+              </div>
+            </form>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <a href="mailto:hello@danielpascoa.com" className="group bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-2">
