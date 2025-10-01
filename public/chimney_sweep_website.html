@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A C Taylor Chimney Sweep | Professional Chimney Services Peterborough</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0f0f0f;
+            --warm-gold: #d4a574;
+            --bright-gold: #f4c542;
+            --safety-green: #4a9d5f;
+            --light-text: #f5f5f5;
+            --gray-text: #b8b8b8;
+            --brick-red: #8b4545;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--warm-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--brick-red), var(--warm-gold));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--bright-gold);
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--bright-gold);
+            border-bottom: 2px solid var(--bright-gold);
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--warm-gold), var(--bright-gold));
+            color: var(--darker-bg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 197, 66, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23442211" width="1200" height="800"/><path fill="%23553322" d="M0 400 Q300 350 600 400 T1200 400 L1200 800 L0 800 Z"/><rect fill="%23221100" x="450" y="0" width="300" height="400" rx="20"/><rect fill="%23110000" x="480" y="50" width="240" height="320" rx="10"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(244, 197, 66, 0.1), transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--bright-gold);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            font-weight: 800;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            font-weight: 300;
+        }
+
+        .heritage-badge {
+            display: inline-block;
+            background: rgba(212, 165, 116, 0.2);
+            border: 2px solid var(--warm-gold);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bright-gold);
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            background: var(--darker-bg);
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.3);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .trust-badges {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .badge {
+            padding: 1.5rem;
+            background: rgba(212, 165, 116, 0.1);
+            border-radius: 12px;
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            transition: all 0.3s;
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+            border-color: var(--warm-gold);
+            box-shadow: 0 8px 24px rgba(212, 165, 116, 0.2);
+        }
+
+        .badge-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge h3 {
+            color: var(--bright-gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .badge p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--dark-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--bright-gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(139, 69, 69, 0.05));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--warm-gold), var(--bright-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(212, 165, 116, 0.2);
+            border-color: var(--warm-gold);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: var(--bright-gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            color: var(--gray-text);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--safety-green);
+            font-weight: bold;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--darker-bg);
+            padding: 5rem 2rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--warm-gold), var(--bright-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 6px 20px rgba(244, 197, 66, 0.3);
+        }
+
+        .feature h3 {
+            color: var(--bright-gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature p {
+            color: var(--gray-text);
+        }
+
+        /* Areas Covered */
+        .areas {
+            padding: 5rem 2rem;
+            background: var(--dark-bg);
+        }
+
+        .areas-list {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .area-item {
+            background: rgba(212, 165, 116, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--warm-gold);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .area-item:hover {
+            background: rgba(212, 165, 116, 0.15);
+            transform: translateX(5px);
+        }
+
+        .area-item span {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--darker-bg);
+            padding: 5rem 2rem;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(212, 165, 116, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: rgba(244, 197, 66, 0.2);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            color: var(--bright-gold);
+            font-weight: 600;
+        }
+
+        .testimonial-location {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: var(--bright-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+            padding: 5rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            background: rgba(212, 165, 116, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            min-width: 250px;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            border-color: var(--warm-gold);
+            transform: translateY(-5px);
+        }
+
+        .contact-method-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method h3 {
+            color: var(--bright-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .contact-method a:hover {
+            color: var(--bright-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 3rem 2rem 1.5rem;
+            border-top: 3px solid var(--warm-gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--bright-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-text);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--bright-gold);
+        }
+
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            background: rgba(212, 165, 116, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <div class="logo-text">
+                    <h1>A C Taylor Chimney Sweep</h1>
+                    <p>Peterborough's Trusted Chimney Experts</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-choose">Why Choose Us</a></li>
+                <li><a href="#areas">Areas Covered</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="contact-buttons">
+                <a href="tel:01733123456" class="btn btn-primary">📞 Call Now</a>
+                <a href="https://wa.me/447123456789" class="btn btn-whatsapp" target="_blank">💬 WhatsApp</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Professional Chimney Sweeping Services</h2>
+            <p class="subtitle">Keeping Peterborough homes safe and warm</p>
+            <div class="heritage-badge">🏆 Over 30 Years of Trusted Service</div>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">Guild of Master Sweeps • HETAS Approved • City & Guilds Qualified</p>
+            <div class="hero-cta">
+                <a href="tel:01733123456" class="btn btn-primary">📞 Book Your Sweep Today</a>
+                <a href="https://wa.me/447123456789" class="btn btn-whatsapp" target="_blank">💬 Message on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="trust-badges">
+            <div class="badge">
+                <div class="badge-icon">🎖️</div>
+                <h3>Guild of Master Sweeps</h3>
+                <p>Certified member ensuring highest professional standards</p>
+            </div>
+            <div class="badge">
+                <div class="badge-icon">🔥</div>
+                <h3>HETAS Approved</h3>
+                <p>Official industry registration for solid fuel heating</p>
+            </div>
+            <div class="badge">
+                <div class="badge-icon">📜</div>
+                <h3>City & Guilds Qualified</h3>
+                <p>Professionally trained and certified technicians</p>
+            </div>
+            <div class="badge">
+                <div class="badge-icon">🏠</div>
+                <h3>Family Business</h3>
+                <p>Three decades of trusted, reliable service</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2>Our Professional Services</h2>
+            <p>Comprehensive chimney care for your peace of mind</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🧹</span>
+                <h3>Chimney Sweeping</h3>
+                <p>Traditional and modern sweeping techniques to remove soot, creosote, and blockages safely and efficiently.</p>
+                <ul>
+                    <li>Removes dangerous creosote buildup</li>
+                    <li>Prevents chimney fires</li>
+                    <li>Improves heating efficiency</li>
+                    <li>Clean and tidy service</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📹</span>
+                <h3>CCTV Inspections</h3>
+                <p>Advanced camera technology to inspect your chimney's condition and identify potential issues.</p>
+                <ul>
+                    <li>Detailed internal inspection</li>
+                    <li>Identify structural damage</li>
+                    <li>Locate blockages precisely</li>
+                    <li>Visual report provided</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🐦</span>
+                <h3>Bird Nest Removal</h3>
+                <p>Safe and humane removal of bird nests and debris, with preventative solutions.</p>
+                <ul>
+                    <li>Safe removal of nests</li>
+                    <li>Bird guard installation</li>
+                    <li>Prevents carbon monoxide risk</li>
+                    <li>Protects wildlife responsibly</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💨</span>
+                <h3>Smoke Tests</h3>
+                <p>Comprehensive smoke testing to ensure your chimney is drawing properly and safely.</p>
+                <ul>
+                    <li>Verifies proper draft</li>
+                    <li>Detects leaks and cracks</li>
+                    <li>Ensures safe operation</li>
+                    <li>Required for insurance</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h3>Appliance Servicing</h3>
+                <p>Professional maintenance for stoves, fireplaces, and heating appliances.</p>
+                <ul>
+                    <li>Annual servicing</li>
+                    <li>Safety checks</li>
+                    <li>Performance optimization</li>
+                    <li>Manufacturer compliance</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🏢</span>
+                <h3>Commercial Services</h3>
+                <p>Specialist services for pubs, restaurants, hotels, and commercial properties.</p>
+                <ul>
+                    <li>Regular maintenance contracts</li>
+                    <li>Compliance certification</li>
+                    <li>Flexible scheduling</li>
+                    <li>Volume discounts available</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-choose" class="why-choose">
+        <div class="section-header">
+            <h2>Why Choose A C Taylor?</h2>
+            <p>Three decades of excellence in chimney care</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>Family Heritage</h3>
+                <p>Over 30 years of trusted service passed down through generations, with traditional values and modern expertise.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✅</div>
+                <h3>Fully Certified</h3>
+                <p>Guild of Master Sweeps member, HETAS approved, and City & Guilds qualified for your complete assurance.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>Safety First</h3>
+                <p>Rigorous safety standards, comprehensive insurance, and fire prevention expertise to protect your home.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3>Clean & Tidy</h3>
+                <p>We respect your home with dust sheets, protective covers, and thorough cleanup after every job.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📍</div>
+                <h3>Local Experts</h3>
+                <p>Proudly serving Peterborough and surrounding areas with fast response times and local knowledge.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💯</div>
+                <h3>Customer Satisfaction</h3>
+                <p>Hundreds of satisfied customers across Cambridgeshire trust us year after year for quality service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas Covered -->
+    <section id="areas" class="areas">
+        <div class="section-header">
+            <h2>Areas We Serve</h2>
+            <p>Professional chimney services across Cambridgeshire and beyond</p>
+        </div>
+        <div class="areas-list">
+            <div class="area-item"><span>📍</span> Peterborough</div>
+            <div class="area-item"><span>📍</span> Stamford</div>
+            <div class="area-item"><span>📍</span> Spalding</div>
+            <div class="area-item"><span>📍</span> March</div>
+            <div class="area-item"><span>📍</span> Huntingdon</div>
+            <div class="area-item"><span>📍</span> Oundle</div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <p style="color: var(--gray-text); font-size: 1.1rem;">Don't see your area? <a href="#contact" style="color: var(--bright-gold); text-decoration: none; font-weight: 600;">Contact us</a> – we may still be able to help!</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="section-header">
+            <h2>What Our Customers Say</h2>
+            <p>Trusted by homeowners and businesses across the region</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Third generation business that really shows. The attention to detail and pride in their work is evident. Fair pricing and exceptional service. Can't recommend them enough.</p>
+                <p class="testimonial-author">Patricia Davies</p>
+                <p class="testimonial-location">March</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to book your chimney sweep? We're here to help</p>
+            </div>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-method-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <a href="tel:01733123456">01733 123 456</a>
+                    <p style="margin-top: 0.5rem; color: var(--gray-text); font-size: 0.9rem;">Mon-Sat: 8am-6pm</p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-method-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/447123456789" target="_blank">Message Us</a>
+                    <p style="margin-top: 0.5rem; color: var(--gray-text); font-size: 0.9rem;">Quick response guaranteed</p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-method-icon">✉️</div>
+                    <h3>Email</h3>
+                    <a href="mailto:info@chimneysweeppeterborough.co.uk">info@chimneysweeppeterborough.co.uk</a>
+                    <p style="margin-top: 0.5rem; color: var(--gray-text); font-size: 0.9rem;">We'll reply within 24 hours</p>
+                </div>
+            </div>
+            <div style="background: rgba(74, 157, 95, 0.15); padding: 2rem; border-radius: 12px; border: 2px solid var(--safety-green); margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--safety-green); margin-bottom: 1rem; font-size: 1.3rem;">🛡️ Your Safety Is Our Priority</h3>
+                <p style="color: var(--light-text); line-height: 1.8;">We recommend annual chimney sweeping to prevent dangerous chimney fires and carbon monoxide buildup. Regular maintenance keeps your home safe, improves efficiency, and is often required for insurance. Book your sweep today for complete peace of mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>A C Taylor Chimney Sweep</h3>
+                <p>Serving Peterborough and surrounding areas for over 30 years with professional, certified chimney services.</p>
+                <p style="margin-top: 1rem;"><strong>Family-run • Trusted • Certified</strong></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#services">Our Services</a>
+                <a href="#why-choose">Why Choose Us</a>
+                <a href="#areas">Areas Covered</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Our Certifications</h3>
+                <div class="footer-certifications">
+                    <span class="cert-badge">Guild of Master Sweeps</span>
+                    <span class="cert-badge">HETAS Approved</span>
+                    <span class="cert-badge">City & Guilds</span>
+                    <span class="cert-badge">Fully Insured</span>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">Committed to the highest standards of safety and professionalism in every job we undertake.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p>📞 <a href="tel:01733123456">01733 123 456</a></p>
+                <p>💬 <a href="https://wa.me/447123456789" target="_blank">WhatsApp Us</a></p>
+                <p>✉️ <a href="mailto:info@chimneysweeppeterborough.co.uk">info@chimneysweeppeterborough.co.uk</a></p>
+                <p style="margin-top: 1rem;">🏠 Serving Peterborough, Stamford, Spalding, March, Huntingdon, Oundle & surrounding areas</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 A C Taylor Chimney Sweep, Peterborough. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Professional chimney sweeping services • Established 1995</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/447123456789" class="fab" target="_blank" title="Message us on WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.6)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.4)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and testimonials
+        document.querySelectorAll('.service-card, .testimonial, .feature, .area-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">We've been using A C Taylor for over 10 years now. They're reliable, trustworthy, and always do an excellent job. It's reassuring to know our chimney is in safe hands.</p>
+                <p class="testimonial-author">John & Mary Thompson</p>
+                <p class="testimonial-location">Stamford</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Fantastic service for our pub. They worked around our opening hours and were incredibly efficient. The CCTV inspection revealed issues we didn't know about. Highly professional.</p>
+                <p class="testimonial-author">David Roberts</p>
+                <p class="testimonial-location">The Crown Inn, Oundle</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">After having a bird nest removed and guard fitted, we haven't had any problems. Really knowledgeable team who took the time to explain everything. Great value for money.</p>
+                <p class="testimonial-author">Emma Williams</p>
+                <p class="testimonial-location">Huntingdon</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Prompt, courteous, and extremely thorough. They arrived exactly on time and completed the sweep efficiently. You can tell they really care about their work. Wouldn't use anyone else.</p>
+                <p class="testimonial-author">Michael Chen</p>
+                <p class="testimonial-location">Peterborough</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Absolutely brilliant service from start to finish. Very professional, clean, and thorough. They explained everything clearly and left no mess whatsoever. Will definitely use again.</p>
+                <p class="testimonial-author">Sarah Mitchell</p>
+                <p class="testimonial-location">Peterborough</p>
+            </div>
+            <div class="testimonial">
+                <div class="stars">
